@@ -37,10 +37,6 @@ if st.button("تأكيد التخمين "):
   st.session_state.count += 1
   if number == sc:
     st.session_state.feed="correct"
-    del st.session_state.num1
-    del st.session_state.num2
-    del st.session_state.sign
-    st.rerun()
   else:
     st.session_state.feed="false"
 if st.session_state.feed == " correct":
