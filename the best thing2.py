@@ -15,6 +15,10 @@ if 'num1' not in st.session_state:
 if 'num2' not in st.session_state:
  st.session_state.num2=random.randint(1,st.session_state.ran)
  st.session_state.sign=random.choice(['+','-','*','/'])
+if "feed " not in st.session_state:
+  st.session_state.feed=0
+if "correct" not in st.session_state:
+  st.session_state.feed=0
 num1=st.session_state.num1
 num2=st.session_state.num2
 sign=st.session_state.sign
@@ -32,19 +36,24 @@ number=st.number_input("ادخل النتيجه ")
 if st.button("تأكيد التخمين "):
   st.session_state.count += 1
   if number == sc:
-    st.success("اجابتك صحيحه ! لقد احسنت")
+    st.session_state.feed="correct"
     st.session_state.num += 1
     del st.session_state.num1
     del st.session_state.num2
     del st.session_state.sign
     st.rerun()
   else:
+    st.session_state.feed="false"
     st.error(f"اجابتك خاطئة! الإجابة الصحيحة كانت : {sc}")
     st.session_state.num = 0
     del st.session_state.num1
     del st.session_state.num2
     del st.session_state.sign
     st.rerun()
+if feed=="correct":
+  st.success("اجابتك صحيحه انك اسكوره ")
+if feed=="false":
+  st.error("للاسف اجابتك خاطاه ")
 if st.session_state.num > 0 and st.session_state.num % 10 == 0:
   st.success("انت بطل! تحدي صديقك انه بالطبع لن يستطيع ان يصل لمستواك  ")
   if st.button("الليفل التالي "):
