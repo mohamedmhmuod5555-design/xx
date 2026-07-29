@@ -37,23 +37,22 @@ if st.button("تأكيد التخمين "):
   st.session_state.count += 1
   if number == sc:
     st.session_state.feed="correct"
-    st.session_state.num += 1
     del st.session_state.num1
     del st.session_state.num2
     del st.session_state.sign
     st.rerun()
   else:
     st.session_state.feed="false"
-    st.error(f"اجابتك خاطئة! الإجابة الصحيحة كانت : {sc}")
-    st.session_state.num = 0
 if "feed" == " correct":
   st.success("اجابتك صحيحه انك اسكوره ")
+  st.session_state.num += 1
   del st.session_state.num1
   del st.session_state.num2
   del st.session_state.sign
   st.rerun()
 if "feed" == "false":
-  st.error("للاسف اجابتك خاطاه ")
+  st.error(f"اجابتك خاطئة! الإجابة الصحيحة كانت : {sc}")
+  st.session_state.num =0
   del st.session_state.num1
   del st.session_state.num2
   del st.session_state.sign
