@@ -52,7 +52,7 @@ if st.button("تأكيد التخمين "):
     st.rerun()
 if "feed" == " correct":
   st.success("اجابتك صحيحه انك اسكوره ")
-if feed == "false":
+if "feed" == "false":
   st.error("للاسف اجابتك خاطاه ")
 if st.session_state.num > 0 and st.session_state.num % 10 == 0:
   st.success("انت بطل! تحدي صديقك انه بالطبع لن يستطيع ان يصل لمستواك  ")
