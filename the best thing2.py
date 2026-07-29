@@ -46,20 +46,18 @@ if st.session_state.feed=="correct":
 if st.session_state.feed=="false":
    st.error(f"اجابتك خاطئة! الإجابة الصحيحة كانت : {sc}")
    st.session_state.num =0
-if 'num1' in st.session_state: 
-  del st.session_state.num1
-if 'num1' in st.session_state: 
-  del st.session_state.num1
-if 'sign' in st.session_state: 
-  del st.session_state.sign
+   st.session_state.num1 = random.randint(1, st.session_state.ran)
+   st.session_state.num2 = random.randint(1, st.session_state.ran)
+   st.session_state.sign = random.choice(['+', '-', '*'])
+   st.rerun()
 if st.session_state.num > 0 and st.session_state.num % 10 == 0:
   st.success("انت بطل! تحدي صديقك انه بالطبع لن يستطيع ان يصل لمستواك  ")
   if st.button("الليفل التالي "):
      st.session_state.level+=1
      st.session_state.ran+=20
-     st.session_state.num1 = random.randint(1, st.session_state.ran)
-     st.session_state.num2 = random.randint(1, st.session_state.ran)
-     st.session_state.sign = random.choice(['+', '-', '*'])
+     del st.session_state.num1
+     del st.session_state.num2
+     del st.session_state.sign
      st.session_state.count=0
      st.session_state.num=0
 
