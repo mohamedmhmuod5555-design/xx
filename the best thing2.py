@@ -50,7 +50,7 @@ if st.button("تأكيد التخمين "):
     del st.session_state.num2
     del st.session_state.sign
     st.rerun()
-if feed == " correct":
+if "feed" == " correct":
   st.success("اجابتك صحيحه انك اسكوره ")
 if feed == "false":
   st.error("للاسف اجابتك خاطاه ")
