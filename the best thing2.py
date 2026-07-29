@@ -46,14 +46,18 @@ if st.button("تأكيد التخمين "):
     st.session_state.feed="false"
     st.error(f"اجابتك خاطئة! الإجابة الصحيحة كانت : {sc}")
     st.session_state.num = 0
-    del st.session_state.num1
-    del st.session_state.num2
-    del st.session_state.sign
-    st.rerun()
 if "feed" == " correct":
   st.success("اجابتك صحيحه انك اسكوره ")
+  del st.session_state.num1
+  del st.session_state.num2
+  del st.session_state.sign
+  st.rerun()
 if "feed" == "false":
   st.error("للاسف اجابتك خاطاه ")
+  del st.session_state.num1
+  del st.session_state.num2
+  del st.session_state.sign
+  st.rerun()
 if st.session_state.num > 0 and st.session_state.num % 10 == 0:
   st.success("انت بطل! تحدي صديقك انه بالطبع لن يستطيع ان يصل لمستواك  ")
   if st.button("الليفل التالي "):
